@@ -10,6 +10,8 @@
     background: linear-gradient(0deg, #d5dbd8 0 88%, #009688 88% 100%);
     width: 100%;
     height: 100vh;
+    font-family: 'Roboto', sans-serif;
+
 
     display: flex;
     justify-content: center;
@@ -30,12 +32,9 @@
 #my-id{
     width: 35%;
     height: 100%;
-    border-right: 2px solid lightslategray;
-
-    /* debug */
-    background-color: red;
+    border-right: 2px solid #b1b1b1;
 }
-#user-title-chat{
+#chat-user{
     width: 65%;
     height: 100%;
     background-color: aliceblue;
@@ -48,8 +47,8 @@ LEFT SIDE
 ************************/
 #my-user-account{
     width: 100%;
-    height: 80px;
-    background-color: #d5dbd8;
+    height: 70px;
+    background-color: #eaeaea;
 
     display: flex;
     justify-content: space-between;
@@ -57,49 +56,115 @@ LEFT SIDE
 }
 #users-chat{
     width: 100%;
-    height: calc(100% - 80px);
+    height: calc(100% - 70px);
 
 }
 
 
 /* user */
+
+/* user left */
 #my-name-account{
     height: 100%;
     min-width: 100px;
+    
 
-    /* debug */
-    background-color: blue;
+    display: flex;
+    align-items: center;
+
 }
+#my-name-account img{
+    height: calc(100% - 20px);
+    border-radius: 50%;
+    margin: 10px;
+}
+
+/* user right */
 #my-user-options{
     height: 100%;
     min-width: 100px;
     text-align: right;
+    margin-right: 10px;
 
-        /* debug */
-    background-color:brown;
+
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+#my-user-options i{
+    margin: auto 7px;
+    font-size: 22px;
+    color: #b1b1b1;
 }
 
 /* bottom / users chat */
 #notifications{
     height: 80px;
-    
-    /* debug */
-    background-color: chartreuse;
+    background-color: #8edafc;
+
+    display: flex;
+    align-items: center;
 }
-#users-chat input{
-    height: 40px;
-    width: calc(100% - 10px);
-    margin: 5px;
+#notifications i{
+    font-size: 20px;
+    color: #8edafc;
+    padding: 16px;
+    background-color: white;
+    border-radius: 50%;
+    margin: 5px 13px;
+}
+#notifications div{
+    line-height: 23px;
+
+}
+#notifications a{
+    display: block;
+    color: #939797;
+
+}
+
+/* input  */
+.users_chat {
+    padding: 6px;
+    background-color: #fafafa;
+
+}
+.users_chat span{
+    background-color: white;
+    color: #d5dbd8;
+
 }
 #list-of-user-chat{
     height: calc(100% - 130px);
+    padding-left: 0;
     overflow-y: auto;
-
-    /* debug */
-    background-color:darkorange;
+    background-color: white;
 }
 
-
+/* users list chat */
+.user:hover{
+    background-color: #eaeaea;
+}
+.user{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    height: 70px;
+    border-top: 1px solid #eaeaea;
+}
+.user span:first-child{
+    height: 100%;
+    display: flex
+}
+.user img{
+    height: calc(100% - 20px);
+    border-radius: 50%;
+    margin: 10px;
+}
+.user-name div, .user span:last-child{
+    color: #b1b1b1;
+    font-size: 13px;
+}
 
 
 
@@ -107,9 +172,9 @@ LEFT SIDE
 RIGHT SIDE
  ************************/
 
- #chat-user{
+ #user-title-chat{
     width: 100%;
-    height: 80px;
+    height: 70px;
     background-color:turquoise;
 
     display: flex;
@@ -117,7 +182,7 @@ RIGHT SIDE
 }
 #messages-user{
     width: 100%;
-    height: calc(100% - 80px);
+    height: calc(100% - 70px);
 
     background-color:coral;
 }
