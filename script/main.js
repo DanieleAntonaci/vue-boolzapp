@@ -167,6 +167,7 @@ createApp({
                 }
             ],
             activeUser: 0,
+            newMessage: '',
 
         }
     },
@@ -174,5 +175,15 @@ createApp({
         selectUser(indexElement) {
             this.activeUser = indexElement;
         },
+        addNewMessage() {
+            if (this.newMessage !== '') {
+                this.contacts[this.activeUser].messages.push({
+                    date: '10/01/2020 16:15:22',
+                    message: this.newMessage,
+                    status: 'sent'
+                });
+            }
+            this.newMessage = '';
+        }
     }
 }).mount('#app');
