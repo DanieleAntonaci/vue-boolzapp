@@ -168,7 +168,6 @@ createApp({
             ],
             activeUser: 0,
             newMessage: '',
-
         }
     },
     methods: {
@@ -184,6 +183,13 @@ createApp({
                 });
             }
             this.newMessage = '';
+            setTimeout(() => {
+                this.contacts[this.activeUser].messages.push({
+                    date: '10/01/2020 16:15:22',
+                    message: 'Ok!',
+                    status: 'received'
+                })
+            }, 1000);
         }
     }
 }).mount('#app');
