@@ -166,10 +166,13 @@ createApp({
                     ],
                 }
             ],
+            activeUser: 0,
 
         }
     },
     methods: {
-
+        selectUser(indexElement) {
+            this.activeUser = indexElement;
+        },
     }
 }).mount('#app');

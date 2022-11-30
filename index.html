@@ -57,7 +57,7 @@
 
 
                     <ul id="list-of-user-chat">
-                        <li class="user" v-for="user in contacts">
+                        <li class="user" v-for="(user, index) in contacts" @click="selectUser(index)">
                             <span>
                                 <img :src="'imgs/avatar' + user.avatar + '.jpg'" alt="User">
                                 <div class="user_name">
@@ -84,11 +84,11 @@
                 <div id="user-title-chat">
 
                     <div id="account-user-chat">
-                        <img  :src="'imgs/avatar' + contacts[1].avatar + '.jpg'" alt="User">
+                        <img  :src="'imgs/avatar' + contacts[activeUser].avatar + '.jpg'" alt="User">
                         <div class="user_title_name">
-                            {{contacts[0].name}}
+                            {{contacts[activeUser].name}}
                             <div class="last_message">
-                                Ultimo messaggio alle {{contacts[0].messages[contacts[0].messages.length -1].date}}
+                                Ultimo messaggio alle {{contacts[activeUser].messages[contacts[activeUser].messages.length -1].date}}
                             </div>
                         </div>
                     </div>
@@ -106,14 +106,11 @@
                 <div id="messages-user">
 
                     <div id="messages">
-                        <div class="message my-message">
-                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore error minus, maiores commodi quisquam deserunt nostrum ea. Ut nesciunt, recusandae, aliquam eum dolore consequatur dolor exercitationem ex unde praesentium voluptate?
-                            <span>12:00</span>
+                        <div v-for="message in contacts[activeUser].messages" class="message" :class="message.status === 'sent'? 'my-message' : 'user-message'" >
+                             {{message.message}}
+                            <span>{{message.date}}</span>
                         </div>
-                        <div class="message user-message">
-                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore error minus, maiores commodi quisquam deserunt nostrum ea. Ut nesciunt, recusandae, aliquam eum dolore consequatur dolor exercitationem ex unde praesentium voluptate?
-                            <span>12:00</span>
-                        </div>
+                        
                     </div>
                     <div id="input-chat">
                         <i class="fa-regular fa-face-smile"></i>
