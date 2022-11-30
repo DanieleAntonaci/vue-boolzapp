@@ -160,7 +160,8 @@ LEFT SIDE
     display: flex;
     justify-content: space-between;
     list-style: none;
-    height: 70px;
+    padding: 4px 0;
+    height: 80px;
     border-top: 1px solid #eaeaea;
 }
 .user span:first-child{
@@ -173,7 +174,9 @@ LEFT SIDE
     border-radius: 50%;
     margin: 10px 20px;
 }
-
+.user_name{
+    overflow-y: hidden;
+}
 .user_name,  
 .user span:last-child{
     padding-top: 5px;
@@ -185,6 +188,11 @@ LEFT SIDE
 .last_message{
     color: #b1b1b1;
     font-size: 13px;
+    
+}
+
+span .last_message{
+    width: 170px;
 }
 
 

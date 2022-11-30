@@ -59,15 +59,15 @@
                     <ul id="list-of-user-chat">
                         <li class="user" v-for="user in contacts">
                             <span>
-                                <img src="imgs/avatar_1.jpg" alt="User">
+                                <img :src="'imgs/avatar' + user.avatar + '.jpg'" alt="User">
                                 <div class="user_name">
                                     {{user.name}}
                                     <div class="last_message">
-                                        Ultimo messaggio inviato
+                                        {{user.messages[user.messages.length - 1].message}}
                                     </div>
                                 </div>
                             </span>
-                            <span class="last_message">12:00</span>
+                            <span class="last_message">{{user.messages[user.messages.length - 1].date}}</span>
                         </li>
                         
                     </ul>
@@ -84,11 +84,11 @@
                 <div id="user-title-chat">
 
                     <div id="account-user-chat">
-                        <img src="imgs/avatar_1.jpg" alt="User">
+                        <img  :src="'imgs/avatar' + contacts[1].avatar + '.jpg'" alt="User">
                         <div class="user_title_name">
-                            Michele
+                            {{contacts[0].name}}
                             <div class="last_message">
-                                Ultimo messaggio alle 12:00
+                                Ultimo messaggio alle {{contacts[0].messages[contacts[0].messages.length -1].date}}
                             </div>
                         </div>
                     </div>
