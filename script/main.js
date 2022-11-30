@@ -171,9 +171,11 @@ createApp({
         }
     },
     methods: {
+        // select user 
         selectUser(indexElement) {
             this.activeUser = indexElement;
         },
+        // add new message to the user selected and response message 'ok!'
         addNewMessage() {
             if (this.newMessage !== '') {
                 this.contacts[this.activeUser].messages.push({

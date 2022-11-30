@@ -156,6 +156,9 @@ LEFT SIDE
 .user:hover{
     background-color: #eaeaea;
 }
+.user-active{
+    background-color: #eaeaea;
+}
 .user{
     display: flex;
     justify-content: space-between;
