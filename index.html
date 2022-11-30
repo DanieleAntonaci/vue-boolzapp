@@ -57,11 +57,11 @@
 
 
                     <ul id="list-of-user-chat">
-                        <li class="user">
+                        <li class="user" v-for="user in contacts">
                             <span>
                                 <img src="imgs/avatar_1.jpg" alt="User">
                                 <div class="user_name">
-                                    Michele
+                                    {{user.name}}
                                     <div class="last_message">
                                         Ultimo messaggio inviato
                                     </div>
