@@ -51,24 +51,37 @@
                     <div class="users_chat ">
                         <div>
                             <span ><i class="fa-solid fa-magnifying-glass"></i></span>
-                            <input type="text" placeholder="Cerca o inizia una nuova chat">
+                            <input 
+                                type="text" 
+                                placeholder="Cerca o inizia una nuova chat" 
+                                v-model="userSearch"
+                            >
                         </div>
                     </div>
 
 
                     <ul id="list-of-user-chat">
-                        <li class="user" v-for="(user, index) in contacts" @click="selectUser(index)" :class="index === activeUser? 'user-active': ''">
-                            <span>
-                                <img :src="'imgs/avatar' + user.avatar + '.jpg'" alt="User">
-                                <div class="user_name">
-                                    {{user.name}}
-                                    <div class="last_message">
-                                        {{user.messages[user.messages.length - 1].message}}
+                        <template v-for="(user, index) in contacts">
+
+                            <li 
+                                class="user" @click="selectUser(index)" 
+                                :class="index === activeUser? 'user-active': ''"
+                                v-if="user.name.includes(userSearch)"
+                            >
+                                <span>
+                                    <img :src="'imgs/avatar' + user.avatar + '.jpg'" alt="User">
+    
+                                    <div class="user_name">
+                                        {{user.name}}
+                                        <div class="last_message">
+                                            {{user.messages[user.messages.length - 1].message}}
+                                        </div>
                                     </div>
-                                </div>
-                            </span>
-                            <span class="last_message">{{user.messages[user.messages.length - 1].date}}</span>
-                        </li>
+                                </span>
+    
+                                <span class="last_message">{{user.messages[user.messages.length - 1].date}}</span>
+                            </li>
+                        </template>
                         
                     </ul>
 

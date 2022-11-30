@@ -168,6 +168,8 @@ createApp({
             ],
             activeUser: 0,
             newMessage: '',
+            userSearch: '',
+            userFind: []
         }
     },
     methods: {
@@ -185,6 +187,8 @@ createApp({
                 });
             }
             this.newMessage = '';
+
+            // response message after 1 sec 
             setTimeout(() => {
                 this.contacts[this.activeUser].messages.push({
                     date: '10/01/2020 16:15:22',
@@ -193,5 +197,8 @@ createApp({
                 })
             }, 1000);
         }
+    },
+    mounted() {
+
     }
 }).mount('#app');

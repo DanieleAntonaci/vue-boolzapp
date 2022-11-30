@@ -197,7 +197,9 @@ LEFT SIDE
 span .last_message{
     width: 170px;
 }
-
+.userNotVisible{
+    display: none;
+}
 
 
 /************************* 
