@@ -127,12 +127,23 @@ LEFT SIDE
 .users_chat {
     padding: 6px;
     background-color: #fafafa;
-
+    
+}
+.users_chat div{
+    border-radius: 5px;
 }
 .users_chat span{
     background-color: white;
     color: #d5dbd8;
-
+    padding: 7px 20px;
+    border-radius: 5px 0 0 5px ;
+}
+.users_chat input{
+    width: calc(100% - 57px);
+    height: 35px;
+    padding-left: 5px;
+    border: none;
+    border-radius: 0 5px 5px 0;
 }
 #list-of-user-chat{
     height: calc(100% - 130px);
@@ -220,13 +231,30 @@ RIGHT SIDE
 
 /* bottom / messages */
 #messages{
-    height: calc(100% - 80px);
+    height: calc(100% - 60px);
     overflow-y: auto;
 }
 
 
 /* input chat */
 #input-chat{
-    height: 80px;
-    background-color: blue;
+    height: 60px;
+    color: #939797;
+    background-color: #f3eeea;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#input-chat i{
+    font-size: 25px;
+    padding:10px 30px;
+}
+#input-chat input{
+    width: calc(100% - 120px);
+    height: calc(100% - 14px);
+    padding: 0 20px;
+    margin: 7px 0;
+    border: none;
+    border-radius: 5px;
 }
