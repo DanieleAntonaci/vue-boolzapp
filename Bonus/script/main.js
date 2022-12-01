@@ -1,4 +1,6 @@
 const { createApp } = Vue;
+var DateTime = luxon.DateTime;
+
 
 createApp({
     data() {
@@ -170,7 +172,8 @@ createApp({
             newMessage: '',
             userSearch: '',
             messageHidden: false,
-            positionMessageMenu: 0
+            positionMessageMenu: 0,
+
         }
     },
     methods: {
@@ -180,9 +183,11 @@ createApp({
         },
         // add new message to the user selected and response message 'ok!'
         addNewMessage() {
+            let nowHour = DateTime.now().toISOTime().split('.')
+            console.log(nowHour[0]);
             if (this.newMessage !== '') {
                 this.contacts[this.activeUser].messages.push({
-                    date: '10/01/2020 16:15:22',
+                    date: DateTime.now().toISODate() + ' ' + nowHour[0],
                     message: this.newMessage,
                     status: 'sent'
                 });
@@ -191,12 +196,13 @@ createApp({
 
             // response message after 1 sec 
             setTimeout(() => {
+                let nowHourResponse = DateTime.now().toISOTime().split('.')
                 this.contacts[this.activeUser].messages.push({
-                    date: '10/01/2020 16:15:22',
+                    date: DateTime.now().toISODate() + ' ' + nowHourResponse[0],
                     message: 'Ok!',
                     status: 'received'
                 })
-            }, 1000);
+            }, 3000);
         },
         dropDownVisible(message, index) {
 
