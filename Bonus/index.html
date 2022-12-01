@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Boolzapp</title>
+</head>
+<body>
+    <div id="app">
+        <div id="container">
+
+
+            <!-- left -->
+            <div id="my-id">
+
+                <!-- upper -->
+                <div id="my-user-account">
+
+                    <div id="my-name-account">
+                        <img src="imgs/avatar_io.jpg" alt="my picture ">
+                        Sofia
+                    </div>
+
+
+                    <div class="my_user_options">
+                        <i class="fa-solid fa-circle-notch"></i>
+                        <i class="fa-solid fa-message"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+
+                </div>
+
+                <!-- bottom -->
+                <div id="users-chat">
+
+                    <div id="notifications">
+                        <i class="fa-solid fa-bell-slash"></i>
+                        <div>
+                            Ricevi notifiche di nuovi messaggi
+                            <a href="#">Attiva notifiche desktop</a>
+                        </div>
+                    </div>
+
+
+                    <div class="users_chat ">
+                        <div>
+                            <span ><i class="fa-solid fa-magnifying-glass"></i></span>
+                            <input 
+                                type="text" 
+                                placeholder="Cerca o inizia una nuova chat" 
+                                v-model="userSearch"
+                            >
+                        </div>
+                    </div>
+
+
+                    <ul id="list-of-user-chat">
+                        <template v-for="(user, index) in contacts">
+
+                            <li 
+                                class="user" @click="selectUser(index)" 
+                                :class="index === activeUser? 'user-active': ''"
+                                v-if="user.name.includes(userSearch)"
+                            >
+                                <span>
+                                    <img :src="'imgs/avatar' + user.avatar + '.jpg'" alt="User">
+    
+                                    <div class="user_name">
+                                        {{user.name}}
+                                        <div class="last_message">
+                                            {{user.messages[user.messages.length - 1].message}}
+                                        </div>
+                                    </div>
+                                </span>
+    
+                                <span class="last_message">{{user.messages[user.messages.length - 1].date}}</span>
+                            </li>
+                        </template>
+                        
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <!-- right -->
+            <div id="chat-user">
+
+                <!-- upper -->
+                <div id="user-title-chat">
+
+                    <div id="account-user-chat">
+                        <img  :src="'imgs/avatar' + contacts[activeUser].avatar + '.jpg'" alt="User">
+                        <div class="user_title_name">
+                            {{contacts[activeUser].name}}
+                            <div class="last_message">
+                                Ultimo messaggio alle {{contacts[activeUser].messages[contacts[activeUser].messages.length -1].date}}
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="my_user_options">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+
+                </div>
+
+                <!-- bottom -->
+                <div id="messages-user">
+
+                    <div id="messages">
+                        <template v-for="(message, index) in contacts[activeUser].messages">
+                            <div  class="message" :class="message.status === 'sent'? 'my-message' : 'user-message'" >
+                                 {{message.message}}
+                                <span>{{message.date}}</span>
+                                <i class="fa-solid fa-angle-down"   @click="dropDownVisible(index)"></i>
+                                <div class="drop-down-menu" :class="index === messageActive? 'visible': ''" >
+                                    <div>Message info</div>
+                                    <div>Delete message</div>
+                                </div>
+                            </div>
+                        </template>
+                        
+                    </div>
+                    <div id="input-chat">
+                        <i class="fa-regular fa-face-smile"></i>
+                        <input type="text" placeholder="Scrivi un messaggio" @keyup.enter="addNewMessage" v-model="newMessage">
+                        <i @click="" class="fa-solid fa-microphone"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="script/main.js"></script>
+</body>
+</html>
