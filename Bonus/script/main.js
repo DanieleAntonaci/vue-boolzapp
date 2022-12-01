@@ -169,8 +169,8 @@ createApp({
             activeUser: 0,
             newMessage: '',
             userSearch: '',
-            messageActive: 0,
-            dropDownMenu: 'hidden'
+            messageHidden: false,
+            positionMessageMenu: 0
         }
     },
     methods: {
@@ -198,8 +198,22 @@ createApp({
                 })
             }, 1000);
         },
-        dropDownVisible(messageindex) {
-            this.messageActive = messageindex;
+        dropDownVisible(message, index) {
+
+            let arrayMessage = document.querySelectorAll('.drop-down-menu');
+
+            if (this.positionMessageMenu !== index) {
+                arrayMessage[this.positionMessageMenu].classList.remove('visible')
+                this.positionMessageMenu = index;
+
+                arrayMessage[index].classList.add('visible')
+            } else {
+                arrayMessage[index].classList.toggle('visible')
+            }
+
+
+
+
 
         }
     },
