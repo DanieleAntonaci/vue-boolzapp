@@ -173,6 +173,18 @@ createApp({
             userSearch: '',
             messageHidden: false,
             positionMessageMenu: 0,
+            answers: [
+                'Ok!',
+                'Buonasera, tutto bene?',
+                'Ciao, che fai?',
+                'Da quanto tempo',
+                'Ehi',
+                'Ehi, che si dice',
+                'Weh',
+                'Ei',
+                ':)'
+
+            ]
 
         }
     },
@@ -203,7 +215,7 @@ createApp({
                 let nowHourResponse = DateTime.now().toISOTime().split('.')
                 this.contacts[this.activeUser].messages.push({
                     date: DateTime.now().toISODate() + ' ' + nowHourResponse[0],
-                    message: 'Ok!',
+                    message: this.answers[Math.floor(Math.random() * this.answers.length)],
                     status: 'received'
                 })
             }, 1500);
