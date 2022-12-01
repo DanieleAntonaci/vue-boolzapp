@@ -203,17 +203,23 @@ createApp({
             let arrayMessage = document.querySelectorAll('.drop-down-menu');
 
             if (this.positionMessageMenu !== index) {
-                arrayMessage[this.positionMessageMenu].classList.remove('visible')
-                this.positionMessageMenu = index;
+                if (arrayMessage[this.positionMessageMenu]) {
+                    arrayMessage[this.positionMessageMenu].classList.remove('visible')
+                    this.positionMessageMenu = index;
 
-                arrayMessage[index].classList.add('visible')
+                    arrayMessage[index].classList.add('visible')
+                } else {
+                    this.positionMessageMenu = index;
+
+                    arrayMessage[index].classList.add('visible')
+
+                }
             } else {
                 arrayMessage[index].classList.toggle('visible')
             }
-
-
-
-
+        },
+        delateMessage(index) {
+            this.contacts[this.activeUser].messages.splice(index, 1)
 
         }
     },
