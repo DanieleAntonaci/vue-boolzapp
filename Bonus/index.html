@@ -123,7 +123,7 @@
                             <div  class="message" :class="message.status === 'sent'? 'my-message' : 'user-message'" >
                                  {{message.message}}
                                 <span>{{message.date}}</span>
-                                <i class="fa-solid fa-angle-down"   @click="dropDownVisible(message,index)"></i>
+                                <i class="fa-solid fa-angle-down" @click="dropDownVisible(index)"></i>
                                 
                                 <div class="drop-down-menu" >
                                     <div>Message info</div>

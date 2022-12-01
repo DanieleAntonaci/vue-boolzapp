@@ -180,6 +180,10 @@ createApp({
         // select user 
         selectUser(indexElement) {
             this.activeUser = indexElement;
+
+            // reset class drop down in messages
+            let arrayMessage = document.querySelectorAll('.drop-down-menu');
+            arrayMessage[this.positionMessageMenu].classList.remove('visible')
         },
         // add new message to the user selected and response message 'ok!'
         addNewMessage() {
@@ -202,9 +206,9 @@ createApp({
                     message: 'Ok!',
                     status: 'received'
                 })
-            }, 3000);
+            }, 1500);
         },
-        dropDownVisible(message, index) {
+        dropDownVisible(index) {
 
             let arrayMessage = document.querySelectorAll('.drop-down-menu');
 
