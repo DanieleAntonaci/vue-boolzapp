@@ -243,7 +243,16 @@ createApp({
         delateMessage(index) {
             this.contacts[this.activeUser].messages.splice(index, 1)
 
-        }
+        },
+        inputToLowerCaseSerach() {
+            let searchLower = this.userSearch.toLowerCase();
+            return searchLower
+        },
+        inputToLowerCaseUser(user) {
+            let userLower = user.name.toLowerCase();
+            return userLower
+        },
+
     },
     mounted() {
 

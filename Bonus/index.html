@@ -66,7 +66,7 @@
                             <li 
                                 class="user" @click="selectUser(index)" 
                                 :class="index === activeUser? 'user-active': ''"
-                                v-if="user.name.includes(userSearch)"
+                                v-if="inputToLowerCaseUser(user).includes(inputToLowerCaseSerach())"
                             >
                                 <span>
                                     <img :src="'imgs/avatar' + user.avatar + '.jpg'" alt="User">
