@@ -184,7 +184,13 @@ createApp({
                 'Ei',
                 ':)'
 
-            ]
+            ],
+
+
+            darkMode: true,
+            classDarkMode: '',
+            classAppDarkMode: '',
+            darkModeApp: 'backgroungLinear'
 
         }
     },
@@ -201,24 +207,24 @@ createApp({
         addNewMessage() {
             let nowHour = DateTime.now().toISOTime().split('.')
             console.log(nowHour[0]);
-            if (this.newMessage !== '') {
+            if (this.newMessage !== '' && this.newMessage !== ' ') {
                 this.contacts[this.activeUser].messages.push({
                     date: DateTime.now().toISODate() + ' ' + nowHour[0],
                     message: this.newMessage,
                     status: 'sent'
                 });
-            }
-            this.newMessage = '';
+                this.newMessage = '';
 
-            // response message after 1 sec 
-            setTimeout(() => {
-                let nowHourResponse = DateTime.now().toISOTime().split('.')
-                this.contacts[this.activeUser].messages.push({
-                    date: DateTime.now().toISODate() + ' ' + nowHourResponse[0],
-                    message: this.answers[Math.floor(Math.random() * this.answers.length)],
-                    status: 'received'
-                })
-            }, 1500);
+                // response message after 1 sec 
+                setTimeout(() => {
+                    let nowHourResponse = DateTime.now().toISOTime().split('.')
+                    this.contacts[this.activeUser].messages.push({
+                        date: DateTime.now().toISODate() + ' ' + nowHourResponse[0],
+                        message: this.answers[Math.floor(Math.random() * this.answers.length)],
+                        status: 'received'
+                    })
+                }, 1500);
+            }
         },
         dropDownVisible(index) {
 
@@ -252,6 +258,18 @@ createApp({
             let userLower = user.name.toLowerCase();
             return userLower
         },
+        changeMode() {
+            this.darkMode = !this.darkMode
+            console.log(this.darkMode);
+            if (!this.darkMode) {
+                this.classDarkMode = 'dark';
+                this.darkModeApp = 'classDarkModeApp'
+            } else {
+                this.classDarkMode = '';
+                this.darkModeApp = 'backgroungLinear'
+
+            }
+        }
 
     },
     mounted() {

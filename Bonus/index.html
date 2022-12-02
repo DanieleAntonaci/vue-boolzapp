@@ -12,12 +12,12 @@
     <title>Boolzapp</title>
 </head>
 <body>
-    <div id="app">
-        <div id="container">
+    <div id="app" class="backgroungLinear">
+        <div id="container" :class='classDarkMode'>
 
 
             <!-- left -->
-            <div id="my-id">
+            <div id="my-id" >
 
                 <!-- upper -->
                 <div id="my-user-account">
@@ -27,6 +27,10 @@
                         Sofia
                     </div>
 
+                    <div class="dark-mode my_user_options" @click="changeMode">
+                        <i class="fa-solid fa-sun" v-if="darkMode === true"></i>
+                        <i class="fa-solid fa-moon"  v-else></i>
+                    </div>
 
                     <div class="my_user_options">
                         <i class="fa-solid fa-circle-notch"></i>
@@ -105,7 +109,6 @@
                             </div>
                         </div>
                     </div>
-
 
                     <div class="my_user_options">
                         <i class="fa-solid fa-magnifying-glass"></i>

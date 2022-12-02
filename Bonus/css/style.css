@@ -7,15 +7,20 @@
     box-sizing: border-box;
 }
 #app{
-    background: linear-gradient(0deg, #d5dbd8 0 88%, #009688 88% 100%);
     width: 100%;
     height: 100vh;
     font-family: 'Roboto', sans-serif;
-
-
+    
+    
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.backgroungLinear{
+    background: linear-gradient(0deg, #d5dbd8 0 88%, #009688 88% 100%);
+}
+.classDarkModeApp{
+    background: linear-gradient(0deg, #d5dbd8 0 88%, #000 88% 100%);
 }
 #container {
     min-width: 700px;
@@ -34,6 +39,8 @@
     height: 100%;
     border-right: 2px solid #b1b1b1;
 }
+
+
 #chat-user{
     width: 65%;
     height: 100%;
@@ -135,7 +142,7 @@ LEFT SIDE
 .users_chat span{
     background-color: white;
     color: #d5dbd8;
-    padding: 7px 20px;
+    padding: 7px 20px 9px;
     border-radius: 5px 0 0 5px ;
 }
 .users_chat input{
@@ -328,4 +335,13 @@ RIGHT SIDE
     margin: 7px 0;
     border: none;
     border-radius: 5px;
+}
+
+/* dark mode */
+.dark{
+    filter: invert(100%);
+}
+
+.dark img{
+    filter: invert(100%);
 }
