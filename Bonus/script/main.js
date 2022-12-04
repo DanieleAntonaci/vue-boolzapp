@@ -1,5 +1,6 @@
 const { createApp } = Vue;
-var DateTime = luxon.DateTime;
+let DateTime = luxon.DateTime;
+let format = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
 
 
 createApp({
@@ -205,9 +206,10 @@ createApp({
         },
         // add new message to the user selected and response message 'ok!'
         addNewMessage() {
-            let nowHour = DateTime.now().toISOTime().split('.')
-            console.log(nowHour[0]);
-            if (this.newMessage !== '' && this.newMessage !== ' ') {
+
+
+            if (/[0-9]/.test(this.newMlessage) || /[a - zA - Z] /.test(this.newMessage) || format.test(this.newMessage)) {
+                // if (this.newMessage !== '' && this.newMessage !== ' ') {
                 this.contacts[this.activeUser].messages.push({
                     date: DateTime.now().toISODate() + ' ' + nowHour[0],
                     message: this.newMessage,
